@@ -5,7 +5,17 @@ Returns: an integer
 def single_number(arr):
     # Your code here
 
-    pass
+    counts = {}
+
+    for x in arr:
+        if x in counts:
+            del counts[x]
+        else:
+            counts[x] = 1
+
+    for y in counts:
+        if counts[y] == 1:
+            return y
 
 
 if __name__ == '__main__':
