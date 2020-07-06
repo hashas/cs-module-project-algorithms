@@ -5,7 +5,32 @@ Returns: a List of integers
 def sliding_window_max(nums, k):
     # Your code here
 
-    pass
+    a = 0
+    b = k
+    result = []
+    
+    while b <= len(nums):
+        max = []
+        for x in nums[a:b]:
+            if not max or x > max:
+                max = x
+                
+        result.append(max)
+        a += 1
+        b += 1
+        
+    return result
+
+    # the below code runs in approx 15secs vs the above which is 30secs
+    # however is still fails the 'large_input' test which requires sub 1sec!
+
+    # win = []
+    # small = [0] * k
+    # for i in range(0, len(nums) - k + 1):
+    #         small = nums[i:i + k]
+    #         win.append(max(small))
+
+    # return win
 
 
 if __name__ == '__main__':
